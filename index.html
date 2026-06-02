@@ -3,13 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ian & Ellie Celebration</title>
+<title>Ian's Birthday & Elisha's Baptism</title>
+
+<!-- Playful fonts for the Bluey vibe -->
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Outfit:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #fff6f0, #f0f8ff);
+    font-family: 'Outfit', sans-serif;
+    /* Blend of Bluey Blue, Yellow, and Baptismal White */
+    background: linear-gradient(135deg, #4da6ff 0%, #fffbd6 50%, #eef7ff 100%);
+    background-attachment: fixed;
 }
 
 .container {
@@ -20,36 +25,55 @@ body {
 
 .header {
     text-align: center;
-    padding: 30px 10px;
+    padding: 40px 15px;
+    background: white;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.05);
 }
 
 .header h1 {
-    font-size: 32px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 34px;
     margin-bottom: 10px;
 }
 
+.ian-text { color: #0052cc; text-shadow: 1px 1px #ffdb58; }
+.elisha-text { color: #7ba4db; }
+
 .header p {
-    color: #555;
+    color: #666;
+    font-size: 18px;
 }
 
 .card {
     background: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    margin-top: 20px;
+    padding: 30px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    margin-top: 0;
+}
+
+.rsvp-card {
+    border-radius: 20px;
+    margin-top: 25px;
 }
 
 .section-title {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #333;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #0052cc;
+    border-bottom: 2px dashed #ffdb58;
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
 .info {
-    line-height: 1.6;
+    line-height: 1.8;
     color: #444;
 }
+
+.info b { color: #0052cc; }
 
 .rsvp input,
 .rsvp select,
@@ -58,29 +82,53 @@ body {
     padding: 12px;
     margin-top: 8px;
     margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    border: 2px solid #eef7ff;
+    border-radius: 10px;
+    font-family: inherit;
+    box-sizing: border-box;
 }
 
-button {
+button.submit-btn {
     width: 100%;
-    padding: 14px;
+    padding: 15px;
     border: none;
-    border-radius: 8px;
-    background: #ff6b6b;
+    border-radius: 10px;
+    background: #0052cc;
     color: white;
-    font-size: 16px;
+    font-size: 18px;
+    font-family: 'Fredoka', sans-serif;
     cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 82, 204, 0.2);
+    transition: 0.3s;
 }
 
-button:hover {
-    background: #ff4f4f;
+button.submit-btn:hover {
+    background: #003d99;
+    transform: translateY(-2px);
+}
+
+.music-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 50px;
+    background: #ffdb58;
+    color: #0052cc;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 100;
 }
 
 .success {
     display: none;
     margin-top: 15px;
-    color: green;
+    color: #2e7d32;
+    background: #e8f5e9;
+    padding: 10px;
+    border-radius: 8px;
     text-align: center;
 }
 
@@ -88,73 +136,62 @@ button:hover {
 </head>
 
 <body>
+
     <audio id="bgMusic" autoplay loop>
-    <source src="music.mp3" type="audio/mp3">
-</audio>
-    <button onclick="document.getElementById('bgMusic').play()" 
-style="
-position:fixed;
-bottom:20px;
-right:20px;
-padding:10px 15px;
-border:none;
-border-radius:8px;
-background:#ff6b6b;
-color:white;
-cursor:pointer;
-">
-▶ Play Music
-</button>
+        <source src="music.mp3" type="audio/mp3">
+    </audio>
+
+    <button class="music-control" onclick="document.getElementById('bgMusic').play()">
+        🎵 Play Music
+    </button>
 
 <div class="container">
 
     <div class="header">
-        <h1>🎉 Ian Turns 5 & 👶 Ellie’s Christening</h1>
-        <p>You are warmly invited to celebrate this special day with us</p>
+        <h1>
+            <span class="ian-text">Ian Turns 5</span> 
+            <span style="color:#888; font-weight: 300;">&</span> 
+            <span class="elisha-text">Elisha’s Baptism</span>
+        </h1>
+        <p>Wackadoo! You're invited to our double celebration!</p>
     </div>
 
     <div class="card">
         <div class="section-title">📅 Event Details</div>
         <div class="info">
-            <p><b>Date:</b> [Insert Date]</p>
-            <p><b>Time:</b> [Insert Time]</p>
-            <p><b>Venue:</b> [Insert Location]</p>
+            <p>🐾 <b>Date:</b> [Insert Date]</p>
+            <p>⛪ <b>Time:</b> [Insert Time]</p>
+            <p>📍 <b>Venue:</b> [Insert Location]</p>
         </div>
     </div>
 
-    <div class="card rsvp">
+    <div class="card rsvp rsvp-card">
         <div class="section-title">📩 RSVP</div>
 
         <form id="rsvpForm">
-
             <input type="text" id="name" placeholder="Full Name" required>
-
             <input type="email" id="email" placeholder="Email Address" required>
 
             <select id="attendance" required>
                 <option value="">Will you attend?</option>
-                <option value="Yes">Yes, we will attend</option>
-                <option value="No">Sorry, we can’t attend</option>
+                <option value="Yes">For Real Life! (Yes, we'll be there)</option>
+                <option value="No">Sorry, we can’t make it</option>
             </select>
 
             <input type="number" id="guests" placeholder="Number of Guests" min="0" max="10">
+            <textarea id="message" placeholder="Message for Ian & Elisha (optional)"></textarea>
 
-            <textarea id="message" placeholder="Message (optional)"></textarea>
-
-            <button type="submit">Send RSVP</button>
-
+            <button type="submit" class="submit-btn">Send RSVP</button>
         </form>
 
         <div class="success" id="successMsg">
-            Thank you! Your RSVP has been recorded 💛
+            Hooray! Your RSVP has been recorded 💙✨
         </div>
     </div>
 
 </div>
 
 <script>
-
-// 🔴 PASTE YOUR GOOGLE APPS SCRIPT URL HERE
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzBkDnHbTgr3MJG8pOxzJ0P9JL6dgTmL65dhY7gzJBknUTz8Ice3_p5PWIPRhkhJl8a/exec";
 
 document.getElementById("rsvpForm").addEventListener("submit", async function(e){
