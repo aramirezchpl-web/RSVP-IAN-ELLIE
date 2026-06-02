@@ -88,6 +88,23 @@ button:hover {
 </head>
 
 <body>
+    <audio id="bgMusic" autoplay loop>
+    <source src="music.mp3" type="audio/mp3">
+</audio>
+    <button onclick="document.getElementById('bgMusic').play()" 
+style="
+position:fixed;
+bottom:20px;
+right:20px;
+padding:10px 15px;
+border:none;
+border-radius:8px;
+background:#ff6b6b;
+color:white;
+cursor:pointer;
+">
+▶ Play Music
+</button>
 
 <div class="container">
 
