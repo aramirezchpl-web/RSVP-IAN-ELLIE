@@ -1,22 +1,81 @@
+HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ian's Birthday & Elisha's Baptism</title>
+<title>Ian's Birthday & Elisha's Christening</title>
 
-<!-- Playful fonts for the Bluey vibe -->
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Outfit:wght@300;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 body {
     margin: 0;
-    font-family: 'Outfit', sans-serif;
-    /* Blend of Bluey Blue, Yellow, and Baptismal White */
-    background: linear-gradient(135deg, #4da6ff 0%, #fffbd6 50%, #eef7ff 100%);
-    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    
+    /* 📸 PHOTO BACKGROUND OPTION APPLIED HERE */
+    background-image: url('bg.jpg'); 
+    background-size: cover;        /* Stretches the image to fill the screen */
+    background-position: center;   /* Centers the image perfectly */
+    background-repeat: no-repeat;  /* Prevents tiling/grid repeating */
+    background-attachment: fixed;  /* Keeps background steady while scrolling */
 }
 
+/* Welcome Overlay Styles */
+#welcomeOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #4da6ff, #e1f5fe);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease, visibility 0.8s;
+    text-align: center;
+}
+
+.welcome-box {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    max-width: 400px;
+    width: 85%;
+}
+
+.welcome-box h2 {
+    font-family: 'Fredoka', sans-serif;
+    color: #0052cc;
+    margin-bottom: 5px;
+}
+
+.welcome-box p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.open-btn {
+    background: #ffd54f;
+    color: #0052cc;
+    border: none;
+    padding: 15px 35px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 213, 79, 0.4);
+    transition: 0.3s;
+}
+
+.open-btn:hover {
+    transform: scale(1.05);
+    background: #ffca28;
+}
+
+/* Layout Content Styles */
 .container {
     max-width: 700px;
     margin: auto;
@@ -25,37 +84,36 @@ body {
 
 .header {
     text-align: center;
-    padding: 40px 15px;
+    padding: 40px 10px;
     background: white;
     border-radius: 20px 20px 0 0;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 .header h1 {
     font-family: 'Fredoka', sans-serif;
-    font-size: 34px;
+    font-size: 36px;
     margin-bottom: 10px;
+    color: #0052cc;
 }
 
-.ian-text { color: #0052cc; text-shadow: 1px 1px #ffdb58; }
-.elisha-text { color: #7ba4db; }
-
 .header p {
-    color: #666;
-    font-size: 18px;
+    color: #555;
+    font-weight: 300;
+    letter-spacing: 0.5px;
 }
 
 .card {
     background: white;
-    padding: 30px;
-    border-radius: 0 0 20px 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    margin-top: 0;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    margin-top: 20px;
+    border-left: 8px solid #ffd54f;
 }
 
-.rsvp-card {
-    border-radius: 20px;
-    margin-top: 25px;
+.card-baptism {
+    border-left: 8px solid #b3e5fc;
 }
 
 .section-title {
@@ -63,9 +121,9 @@ body {
     font-size: 22px;
     margin-bottom: 15px;
     color: #0052cc;
-    border-bottom: 2px dashed #ffdb58;
-    display: inline-block;
-    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .info {
@@ -73,7 +131,9 @@ body {
     color: #444;
 }
 
-.info b { color: #0052cc; }
+.info b {
+    color: #0052cc;
+}
 
 .rsvp input,
 .rsvp select,
@@ -82,10 +142,15 @@ body {
     padding: 12px;
     margin-top: 8px;
     margin-bottom: 15px;
-    border: 2px solid #eef7ff;
+    border: 2px solid #e3f2fd;
     border-radius: 10px;
     font-family: inherit;
     box-sizing: border-box;
+}
+
+.rsvp input:focus {
+    border-color: #4da6ff;
+    outline: none;
 }
 
 button.submit-btn {
@@ -95,11 +160,11 @@ button.submit-btn {
     border-radius: 10px;
     background: #0052cc;
     color: white;
-    font-size: 18px;
     font-family: 'Fredoka', sans-serif;
+    font-size: 18px;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 82, 204, 0.2);
     transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 82, 204, 0.3);
 }
 
 button.submit-btn:hover {
@@ -107,6 +172,7 @@ button.submit-btn:hover {
     transform: translateY(-2px);
 }
 
+/* Floating Music Control Button */
 .music-control {
     position: fixed;
     bottom: 20px;
@@ -114,11 +180,11 @@ button.submit-btn:hover {
     padding: 12px 18px;
     border: none;
     border-radius: 50px;
-    background: #ffdb58;
+    background: #ffd54f;
     color: #0052cc;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     z-index: 100;
 }
 
@@ -127,46 +193,52 @@ button.submit-btn:hover {
     margin-top: 15px;
     color: #2e7d32;
     background: #e8f5e9;
-    padding: 10px;
+    padding: 15px;
     border-radius: 8px;
     text-align: center;
+    font-weight: bold;
 }
-
 </style>
 </head>
 
 <body>
 
-    <audio id="bgMusic" autoplay loop>
+    <!-- Welcome Overlay (Triggers Music Safely) -->
+    <div id="welcomeOverlay">
+        <div class="welcome-box">
+            <h2>You're Invited! 🐾🕊️</h2>
+            <p>Ian & Elisha are celebrating a milestone day!</p>
+            <button class="open-btn" onclick="startInvitation()">Open Invitation</button>
+        </div>
+    </div>
+
+    <!-- Audio Player -->
+    <audio id="bgMusic" loop>
         <source src="music.mp3" type="audio/mp3">
     </audio>
 
-    <button class="music-control" onclick="document.getElementById('bgMusic').play()">
-        🎵 Play Music
+    <button class="music-control" id="musicToggleBtn" onclick="toggleMusic()">
+        🎵 Pause Music
     </button>
 
 <div class="container">
 
     <div class="header">
-        <h1>
-            <span class="ian-text">Ian Turns 5</span> 
-            <span style="color:#888; font-weight: 300;">&</span> 
-            <span class="elisha-text">Elisha’s Baptism</span>
-        </h1>
-        <p>Wackadoo! You're invited to our double celebration!</p>
+        <h1>🐾 Ian Turns 5 & <br>🕊️ Elisha’s Baptism</h1>
+        <p>A day of celebration, blessings, and family fun!</p>
     </div>
 
     <div class="card">
-        <div class="section-title">📅 Event Details</div>
+        <div class="section-title">📅 Party & Ceremony Details</div>
         <div class="info">
-            <p>🐾 <b>Date:</b> [Insert Date]</p>
-            <p>⛪ <b>Time:</b> [Insert Time]</p>
-            <p>📍 <b>Venue:</b> [Insert Location]</p>
+            <p><b>Date:</b> June 21, 2026</p>
+            <p><b>Time:</b> [Insert Time]</p>
+            <p><b>Venue:</b> Ouan's The Farm resort</p>
         </div>
     </div>
 
-    <div class="card rsvp rsvp-card">
-        <div class="section-title">📩 RSVP</div>
+    <div class="card rsvp card-baptism">
+        <div class="section-title">📩 Save the Date</div>
 
         <form id="rsvpForm">
             <input type="text" id="name" placeholder="Full Name" required>
@@ -175,7 +247,7 @@ button.submit-btn:hover {
             <select id="attendance" required>
                 <option value="">Will you attend?</option>
                 <option value="Yes">For Real Life! (Yes, we'll be there)</option>
-                <option value="No">Sorry, we can’t make it</option>
+                <option value="No">Sorry, we can’t attend</option>
             </select>
 
             <input type="number" id="guests" placeholder="Number of Guests" min="0" max="10">
@@ -185,7 +257,7 @@ button.submit-btn:hover {
         </form>
 
         <div class="success" id="successMsg">
-            Hooray! Your RSVP has been recorded 💙✨
+            Wackadoo! Your RSVP has been recorded! 💙✨
         </div>
     </div>
 
@@ -193,6 +265,31 @@ button.submit-btn:hover {
 
 <script>
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzBkDnHbTgr3MJG8pOxzJ0P9JL6dgTmL65dhY7gzJBknUTz8Ice3_p5PWIPRhkhJl8a/exec";
+
+const music = document.getElementById('bgMusic');
+const toggleBtn = document.getElementById('musicToggleBtn');
+
+function startInvitation() {
+    const overlay = document.getElementById('welcomeOverlay');
+    overlay.style.opacity = '0';
+    setTimeout(() => {
+        overlay.style.visibility = 'hidden';
+    }, 800);
+
+    music.play().catch(error => {
+        console.log("Audio play failed: ", error);
+    });
+}
+
+function toggleMusic() {
+    if (music.paused) {
+        music.play();
+        toggleBtn.innerHTML = "🎵 Pause Music";
+    } else {
+        music.pause();
+        toggleBtn.innerHTML = "▶ Play Music";
+    }
+}
 
 document.getElementById("rsvpForm").addEventListener("submit", async function(e){
     e.preventDefault();
